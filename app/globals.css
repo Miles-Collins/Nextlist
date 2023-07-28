@@ -14,7 +14,21 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
+
+  .bg-white {
+    background-color: rgb(56, 56, 56);
+  }
+
+  .border-neutral-200 {
+    border-color: rgb(143, 143, 143);
+  }
+
+  .hover:bg-neutral-100 {
+    background-color: rgb(56, 56, 56);
+  }
 }
+
+
 
 body {
   color: rgb(var(--foreground-rgb));
