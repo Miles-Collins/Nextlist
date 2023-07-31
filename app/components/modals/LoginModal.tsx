@@ -3,6 +3,7 @@
 import useLoginModal from "@/app/hooks/useLoginModal";
 import { useState } from "react";
 import { FieldValues, useForm } from "react-hook-form";
+import Modal from "./Modal";
 
 const LoginModal = () => {
 
@@ -18,9 +19,9 @@ const LoginModal = () => {
     },})
 
 
-  }
+  
 
-  return ( <Modal /> );
+  return ( <Modal onClose={() => null} onSubmit={() => null} title="Login Modal" actionLabel="Continue" /> );
 }
  
 export default LoginModal;

@@ -1,17 +1,18 @@
 import { useCallback, useEffect, useState } from "react"
 import {IoMdClose} from "react-icons/io"
+import Button from "../Button"
 
 interface ModalProps {
   isOpen? : boolean
   onClose : () => void
   onSubmit : () => void
   title: string
-  body?: string
-  footer? : string
+  body?: React.ReactElement
+  footer? : React.ReactElement
   actionLabel : string
   disabled? : boolean
-  secondaryAction : () => void
-  secondaryActionLabel? : string
+  secondaryAction? : () => void
+  secondaryActionLabel? : string | undefined
 
 
 }
@@ -97,11 +98,12 @@ if(!isOpen) {
             {/* FOOTER */}
             <div className="flex flex-col gap-2 p-6">
               <div className="flex flex-row items-center gap-4 w-full">
-                {secondaryAction && secondaryActionLabel (
-                  <Button />
+                {secondaryAction && secondaryActionLabel && (
+                  <Button type="button" title={secondaryActionLabel} outline disabled={disabled} label={secondaryActionLabel} onClick={handleSecondaryAction}/>
                 )}
-                  <Button />
+                  <Button type="submit" title={actionLabel} disabled={disabled} label={actionLabel} onClick={handleSubmit} />
               </div>
+              {footer}
             </div>
           </div>
         </div>
