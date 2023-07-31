@@ -4,11 +4,13 @@ import {AiOutlineMenu} from "react-icons/ai"
 import Avatar from "../Avatar";
 import { useCallback, useState } from "react";
 import MenuItem from "./MenuItem";
+import useLoginModal from "@/app/hooks/useLoginModal";
 
 
 const UserMenu = () => {
   const [isOpen, setIsOpen] = useState(false)
   const onSell = () => null
+  const loginModal = useLoginModal()
 
   const toggleOpen = useCallback(() => {
     setIsOpen((value) => !value)
@@ -40,7 +42,7 @@ const UserMenu = () => {
             <MenuItem onClick={() => {}} label="My items" />
             <MenuItem onClick={() => {}} label="Sell items" />
             <MenuItem onClick={() => {}} label="Logout" />
-            <MenuItem onClick={() => {}} label="Login" />
+            <MenuItem onClick={loginModal.onOpen} label="Login" />
             <MenuItem onClick={() => {}} label="Sign Up" />
           </div>
         </div>
