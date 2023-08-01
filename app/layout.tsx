@@ -2,6 +2,8 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Navbar from './components/navbar/Navbar'
+import ToasterProvider from './providers/ToasterProvider'
+import LoginModal from './components/modals/LoginModal'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,6 +20,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <ToasterProvider />
+        <LoginModal />
         <Navbar />
         <div className='pb-20 pt-28'>
         {children}

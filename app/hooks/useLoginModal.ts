@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 interface LoginModalStore {
-  isOpen: Boolean
+  isOpen: boolean
   onOpen: () => void
   onClose: () => void
 }

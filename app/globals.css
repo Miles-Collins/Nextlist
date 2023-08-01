@@ -16,7 +16,8 @@
   }
 
   .bg-white {
-    background-color: rgb(56, 56, 56);
+    background-color: rgb(124, 124, 124);
+    color: black;
   }
 
   .border-neutral-200 {
@@ -25,6 +26,10 @@
 
   .bg-neutral-100:hover {
     background-color: rgb(56, 56, 56);
+  }
+
+  .border-neutral-300 {
+    border-color: rgb(177, 177, 177)
   }
 
 }

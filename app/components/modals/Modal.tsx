@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react"
 import {IoMdClose} from "react-icons/io"
-import Button from "../Button"
+import Button from "../buttons/Button"
 
 interface ModalProps {
   isOpen? : boolean
@@ -93,23 +93,24 @@ if(!isOpen) {
             <div className="text-lg text-black font-semibold">
               {title}
             </div>
+          </div>  
             {/* BODY */}
-            <div className="relative p-6 flex-auto">{body}</div>
+          <div className="relative p-6 flex-auto">{body}</div>
             {/* FOOTER */}
-            <div className="flex flex-col gap-2 p-6">
+          <div className="flex flex-col gap-2 p-6">
               <div className="flex flex-row items-center gap-4 w-full">
                 {secondaryAction && secondaryActionLabel && (
-                  <Button type="button" title={secondaryActionLabel} outline disabled={disabled} label={secondaryActionLabel} onClick={handleSecondaryAction}/>
+                  <Button type="button" outline disabled={disabled} label={secondaryActionLabel} onClick={handleSecondaryAction}/>
                 )}
-                  <Button type="submit" title={actionLabel} disabled={disabled} label={actionLabel} onClick={handleSubmit} />
+                  <Button type="submit" disabled={disabled} label={actionLabel} onClick={handleSubmit} />
               </div>
               {footer}
-            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+ 
   </> );
 }
  
