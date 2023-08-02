@@ -8,8 +8,8 @@ import LoginModal from './components/modals/LoginModal'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Next List',
-  description: "The Next alternative to Craig's List",
+  title: 'NextGurus',
+  description: "The Next alternative to CarGurus",
 }
 
 export default function RootLayout({

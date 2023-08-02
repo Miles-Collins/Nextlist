@@ -1,6 +1,7 @@
 'use client'
 
 import Container from "../Container";
+import Categories from "../categories/Categories";
 import Logo from "./Logo";
 import UserMenu from "./UserMenu";
 
@@ -14,6 +15,7 @@ const Navbar = () => {
         </div>
       </Container>
     </div>
+    <Categories />
   </div> );
 }
  

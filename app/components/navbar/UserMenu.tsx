@@ -23,7 +23,7 @@ const UserMenu = () => {
           onClick={onSell}
           className="hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-300 hover:border-black hover:text-black transition cursor-pointer"
         >
-          Sell your item
+          Sell your car
         </div>
         <div
           onClick={toggleOpen}
@@ -39,8 +39,8 @@ const UserMenu = () => {
         <div className="absolute rounded-xl shadow-md w-[40vw] md:w-3/4 overflow-hidden right-0 top-12 text-sm bg-white">
           <div className="flex flex-col">
             <MenuItem onClick={() => {}} label="My favorites" />
-            <MenuItem onClick={() => {}} label="My items" />
-            <MenuItem onClick={() => {}} label="Sell items" />
+            <MenuItem onClick={() => {}} label="My cars" />
+            <MenuItem onClick={() => {}} label="Sell car" />
             <MenuItem onClick={() => {}} label="Logout" />
             <MenuItem onClick={loginModal.onOpen} label="Login" />
             <MenuItem onClick={() => {}} label="Sign Up" />
