@@ -1,0 +1,166 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+enum Color {
+  Black
+  Blue
+  Brown
+  Gold
+  Gray
+  Green
+  Orange
+  Purple
+  Red
+  Silver
+  White
+  Yellow
+  Unknown
+}
+
+enum InteriorColor {
+  Black
+  Blue
+  Brown
+  Gray
+  Red
+  Silver
+  Unknown
+}
+
+enum Make {
+  AlfaRomeo
+  Audi
+  Bently
+  BMW
+  Bugatti
+  Chevy
+  Ferrari
+  Fiat
+  Ford
+  Honda
+  Hyundai
+  Infiniti
+  Jaguar
+  Jeep
+  Kia
+  Lamborghini
+  LandRover
+  Maserati
+  Mazda
+  McLaren
+  Mercedes
+  Mini
+  Mitsubishi
+  Nissan
+  Porsche
+  Ram
+  RollsRoyce
+  Subaru
+  Suzuki
+  Tesla
+  Toyota
+  Volkswagen
+  Volvo
+}
+
+enum BodyStyle {
+  SUV_Crossover
+  Sedan
+  Truck
+  Coupe
+  Hatchback
+  Convertible
+  Wagon
+  Minivan
+}
+
+enum Drivetrain {
+  All
+  Front
+  Rear
+}
+
+enum Transmission {
+  Automatic
+  Manual
+}
+
+enum FuelType {
+  Diesel
+  Electric
+  FlexFuel
+  Gasoline
+  Hybrid
+}
+
+enum Engine {
+  V6
+  V8
+  I3
+  I4
+  H4
+  I5
+  I6
+
+}
+
+model User {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  name String?
+  email String? @unique
+  emailVerified DateTime?
+  image String?
+  hashedPassword String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  favoriteIds String[] @db.ObjectId
+
+  accounts Account[]
+  listings Listing[]
+}
+
+model Account {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  userId String @db.ObjectId
+  type String
+  provider String
+  providerAccountId String
+  refresh_token String? @db.String
+  access_token String? @db.String
+  expires_at Int?
+  token_type String?
+  scope String?
+  id_token String? @db.String
+  session_state String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Listing {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  make Make
+  model String
+  bodyStyle BodyStyle
+  color Color
+  interiorColor InteriorColor
+  drivetrain Drivetrain
+  transmission Transmission
+  fuelType FuelType
+  engine Engine
+  price Int
+  location String
+  userId String @db.ObjectId
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
